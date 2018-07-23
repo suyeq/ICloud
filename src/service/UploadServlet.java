@@ -40,17 +40,21 @@ public class UploadServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String path = "/suye";
+        String basePath = request.getScheme() + "://"
+                + request.getServerName() + ":" + request.getServerPort()
+                + path + "/";
         User user = (User) request.getSession().getAttribute(Const.SESSION_USER);
         String from="";
         try {
             List<FileItem> fileItemLists = stu.parseRequest(request);
             for(FileItem fileItem : fileItemLists){
                 if(fileItem.isFormField()){
-                    from = fileItem.getString();
+//                    from = fileItem.getString();
+//                    System.out.println("from="+from);
                 }else{
                     //上传文件名
                     String filename = fileItem.getName();
-                    System.out.println(filename);
                     int index = filename.lastIndexOf("\\");
                     if(index != -1) {
                         filename = filename.substring(index+1);
@@ -89,10 +93,10 @@ public class UploadServlet extends HttpServlet {
                         userFile.setOwnerId(user.getId());
                         userFile.setPath(file.getAbsolutePath());
                         userFileDao.save(userFile);
-
-                        response.sendRedirect(from+"?action=mydisk");
+                        response.sendRedirect(basePath+"icloud?method=admin&action=mydisk");
                     } catch (Exception e) {
                         e.printStackTrace();
+                        response.setContentType("text/html; charset=utf8");
                         response.getWriter().print("上传出错");
                     }
                 }

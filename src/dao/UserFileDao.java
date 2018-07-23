@@ -81,6 +81,7 @@ public class UserFileDao extends DBConnection{
         sta.setInt(5, userFile.getOwnerId());
         sta.setString(6, userFile.getFileSize());
         sta.setInt(7, userFile.getCount());
+        sta.executeUpdate();
     }
 
     public List AddUserFile(ResultSet set) throws SQLException, IOException, ClassNotFoundException {
