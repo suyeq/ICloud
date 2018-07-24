@@ -108,7 +108,7 @@
 									<td>${userFile.owner.username }</td>
 									<td>${userFile.createTime }</td>
 									<td>${userFile.count }</td>
-									<td><a class="btn btn-primary" href="download?id=${userFile.id }" data-target="#pswdown"><i class="fa fa-download"></i>下载</a></td>
+									<td><a class="btn btn-primary" href="icloud/download?id=${userFile.id }" data-target="#pswdown"><i class="fa fa-download"></i>下载</a></td>
 									<!-- 有密码 <td><a class="btn btn-primary" data-toggle="modal" data-target="#pswdown"><i class="fa fa-download"></i>下载</a></td> -->
 								</tr>
 							</c:forEach>

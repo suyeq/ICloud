@@ -1,10 +1,6 @@
 package service;
 
-import action.AdminAction;
-import action.LoginAction;
-import action.RegisterAction;
-import action.UserAction;
-import dao.DBConnection;
+import action.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "BaseServlet",urlPatterns = "/icloud")
 public class BaseServlet extends HttpServlet {
@@ -29,6 +24,10 @@ public class BaseServlet extends HttpServlet {
                 new AdminAction(request,response).carriyShow();
             }else  if(method.equals("user")){
                 new UserAction(request,response).carriyShow();
+            }else  if(method.equals("share")){
+                new ShareFileAction(request,response).carriryShow();
+            } else  if(method.equals("delete")){
+                new DeleteFileAction(request,response).carriryShow();
             }
         } catch (Exception e) {
             e.printStackTrace();

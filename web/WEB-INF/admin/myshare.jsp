@@ -63,7 +63,7 @@
 										<button class="btn btn-danger" onclick="cancelShare(${userFile.id })">取消分享</button>
 									</td>
 									<td>${userFile.count }</td>
-									<td><a class="btn btn-primary" href="download?id=${userFile.id }"><i class="fa fa-download"></i>下载</a></td>
+									<td><a class="btn btn-primary" href="icloud/download?id=${userFile.id }"><i class="fa fa-download"></i>下载</a></td>
 								</tr>
 							</c:forEach>
 							</tbody>
@@ -91,10 +91,11 @@
     		       确定要取消分享？
          </div>
          <div class="modal-footer">
-            <form action="admin">
+            <form action="<%=basePath%>icloud?">
             <button type="button" class="btn btn-default" 
                data-dismiss="modal">关闭
             </button>
+				<input class="hidden" value="share" name="method">
             	<input class="hidden" value="cancelShare" name="action">
             	<input class="hidden" id="share_id" name="id">
            		<input type="submit" class="btn btn-danger" value="确定" />

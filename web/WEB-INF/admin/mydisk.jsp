@@ -163,11 +163,12 @@
     		       确定要分享？
          </div>
          <div class="modal-footer">
-            <form action="admin" id="share_form">
+            <form action="<%=basePath%>icloud?" id="share_form">
             <button type="button" class="btn btn-default" 
                data-dismiss="modal">关闭
             </button>
-            	<input class="hidden" value="share" name="action">
+            	<input class="hidden" value="share" name="method">
+				<input class="hidden" value="takeshare" name="action">
             	<input class="hidden" id="share_id" name="id">
            		<input type="submit" class="btn btn-primary" value="确定" />
             </form>

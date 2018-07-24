@@ -93,6 +93,31 @@ public class UserFileDao extends DBConnection{
         sta.executeUpdate();
     }
 
+    public void updateDownPersons(UserFile userFile) throws SQLException, IOException, ClassNotFoundException {
+        String sql="UPDATE file set count=? where  id=?";
+        con=linkDatabase();
+        sta=con.prepareStatement(sql);
+        sta.setInt(1,userFile.getCount());
+        sta.setInt(2,userFile.getId());
+        sta.executeUpdate();
+    }
+
+    public int updateShareStutas(int id) throws SQLException, IOException, ClassNotFoundException {
+        UserFile userFile=findsbFile(id);
+        int status=0;
+        if(userFile.getIsShared()==1){
+            status=0;
+        }else {
+            status=1;
+        }
+        String sql="update file set isshared=? where id=?";
+        con=linkDatabase();
+        sta=con.prepareStatement(sql);
+        sta.setInt(1,status);
+        sta.setInt(2,id);
+        return sta.executeUpdate();
+    }
+
     public List AddUserFile(ResultSet set) throws SQLException, IOException, ClassNotFoundException {
         while(set.next()){
             UserFile userFile=new UserFile();

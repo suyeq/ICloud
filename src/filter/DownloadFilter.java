@@ -24,7 +24,14 @@ public class DownloadFilter implements Filter {
             User user=(User)((HttpServletRequest)req).getSession().getAttribute(Const.SESSION_USER);
             userFile=userFileDao.findsbFile(id);
             if(user==null || user.getIsAdmin()==1){
+                req.setAttribute(Const.SESSION_USERFILE,userFile);
                 chain.doFilter(req, resp);
+            }else if(userFile.getIsShared()==1){
+                req.setAttribute(Const.SESSION_USERFILE,userFile);
+                chain.doFilter(req,resp);
+            }else {
+                resp.setContentType("text/html;charset=UTF-8");
+                resp.getWriter().println("无访问权限");
             }
 
         } catch (SQLException e) {
