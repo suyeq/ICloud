@@ -2,6 +2,7 @@ package action;
 
 
 import dao.UserDao;
+import util.Const;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +20,8 @@ public class RegisterAction extends Action{
     }
 
     public void carriryShow() throws SQLException, IOException, ClassNotFoundException, ServletException {
-        name=request.getParameter(Parameter_username);
-        pass=request.getParameter(Parameter_pass);
+        name=request.getParameter(Const.Parameter_username);
+        pass=request.getParameter(Const.Parameter_pass);
         if(new UserDao().register(name,pass)>0){
             //response.sendRedirect("common/login.jsp");
             request.getRequestDispatcher("common/login.jsp").forward(request,response);

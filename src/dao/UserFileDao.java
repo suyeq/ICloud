@@ -70,6 +70,15 @@ public class UserFileDao extends DBConnection{
         return  AddUserFile(set);
     }
 
+    public UserFile findsbFile(int id) throws SQLException, IOException, ClassNotFoundException {
+        String sql="select * from file where id=?";
+        con=linkDatabase();
+        sta=con.prepareStatement(sql);
+        sta.setInt(1,id);
+        ResultSet set=sta.executeQuery();
+        return AddUserFileone(set);
+    }
+
     public void save(UserFile userFile) throws SQLException, IOException, ClassNotFoundException {
         String sql="insert into file values(NULL,?,?,?,?,?,?,?,NULL)";
         con=linkDatabase();
@@ -100,6 +109,23 @@ public class UserFileDao extends DBConnection{
             list.add(userFile);
         }
         return list;
+    }
+
+    public UserFile AddUserFileone(ResultSet set) throws SQLException, IOException, ClassNotFoundException {
+        UserFile userFile=new UserFile();
+        while(set.next()){
+            userFile.setId(set.getInt(1));
+            userFile.setFilename(set.getString(2));
+            userFile.setPath(set.getString(3));
+            userFile.setCreateTime(set.getTimestamp(4));
+            userFile.setFileSize(set.getString(7));
+            userFile.setCount(set.getInt(8));
+            userFile.setIsShared(set.getInt(5));
+            userFile.setOwnerId(set.getInt(6));
+            userFile.setFilepassword(set.getString(9));
+            userFile.setOwner(user.login(set.getInt(6)));
+        }
+        return userFile;
     }
 
 

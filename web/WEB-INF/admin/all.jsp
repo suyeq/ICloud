@@ -102,7 +102,8 @@
 							<input type="hidden" name="action" value="delete">
 							<input type="hidden" name="from" value="all">
 							<tbody>
-								<c:forEach items="${fileList }" var="userFile">
+							<%--<iframe></iframe>--%>
+								<c:forEach items="${fileList}" var="userFile">
 								<tr>
 									<th scope="row"><input type="checkbox" name="ids" value="${userFile.id }"></th>
 									<td>${userFile.filename }</td>
@@ -115,7 +116,7 @@
 											<c:otherwise>
 												未分享
 											</c:otherwise>
-										</c:choose> 
+										</c:choose>
 									</td>
 									<td>${userFile.owner.username }</td>
 									<td>${userFile.createTime }</td>

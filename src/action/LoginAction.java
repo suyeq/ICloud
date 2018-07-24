@@ -2,6 +2,7 @@ package action;
 
 import dao.UserDao;
 import model.User;
+import util.Const;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +22,8 @@ public class LoginAction extends Action {
     }
 
     public void carriryShow() throws IOException, SQLException, ClassNotFoundException, ServletException {
-        name=request.getParameter(Parameter_username);
-        pass=request.getParameter(Parameter_pass);
+        name=request.getParameter(Const.Parameter_username);
+        pass=request.getParameter(Const.Parameter_pass);
         if(name.isEmpty()||pass.isEmpty()){
             request.setAttribute("msg","账号或密码不能为空");
             request.getRequestDispatcher("common/login.jsp").forward(request,response);

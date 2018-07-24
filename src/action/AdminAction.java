@@ -4,6 +4,7 @@ import dao.UserDao;
 import dao.UserFileDao;
 import model.User;
 import model.UserFile;
+import util.Const;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +27,9 @@ public class AdminAction extends Action{
 
     public void carriyShow() throws ServletException, IOException, SQLException, ClassNotFoundException {
         user= (User) request.getSession().getAttribute("user");
-        String action=request.getParameter(Parameter_action);
-        String filename=request.getParameter(Parameter_filename);
-        String id=request.getParameter(Parameter_id);
+        String action=request.getParameter(Const.Parameter_action);
+        String filename=request.getParameter(Const.Parameter_filename);
+        String id=request.getParameter(Const.Parameter_id);
         if(action==null||action.equals("")){//Allshare
             if(filename==null||filename.equals("")){
                 fileList=userFileDao.findAllShare();
@@ -44,6 +45,7 @@ public class AdminAction extends Action{
             }else {
                 fileList=userFileDao.findAllFile(filename);
             }
+            System.out.println(fileList.size());
             request.setAttribute("fileList",fileList);
             request.getRequestDispatcher("WEB-INF/admin/all.jsp").forward(request,response);
 
@@ -70,8 +72,8 @@ public class AdminAction extends Action{
             request.getRequestDispatcher("WEB-INF/admin/show_user.jsp").forward(request,response);
 
         }else  if(action.equals("edit")){
-            String password=request.getParameter(Parameter_pass);
-            String password1=request.getParameter(Parameter_pass1);
+            String password=request.getParameter(Const.Parameter_pass);
+            String password1=request.getParameter(Const.Parameter_pass1);
             if(password!=null){
                 int isSuccess=userDao.updataPass(user.getUsername(),password,password1);
                 if(isSuccess==1){
