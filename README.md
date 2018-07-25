@@ -5,3 +5,7 @@
 
 ![image](https://github.com/suyeq/ICloud/blob/master/image/1.png)
 
+![image](https://github.com/suyeq/ICloud/blob/master/image/2.png)
+
+![image](https://github.com/suyeq/ICloud/blob/master/image/3.png)
+
