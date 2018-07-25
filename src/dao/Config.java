@@ -13,6 +13,7 @@ public class Config {
         if(properties.getProperty(key)!=null){
             return properties.getProperty(key);
         }
+
         return null;
     }
 }
