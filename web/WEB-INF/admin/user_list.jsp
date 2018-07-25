@@ -88,7 +88,8 @@
 									<th>查看用户文件</th>
 								</tr>
 							</thead>
-							<form action="admin" id="dele_form" method="post">
+							<form action="<%=basePath%>icloud?" id="dele_form" method="post">
+							<input type="hidden" name="method" value="admin">
 							<input type="hidden" name="action" value="deleteUser">
 							<tbody>
 								<c:forEach items="${userList }" var="user">

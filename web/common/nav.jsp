@@ -5,5 +5,5 @@ li:hover{
 }
 </style>
 <li>
-	<a href="/Netdisc/"><i class="fa fa-print nav_icon"></i>盘友共享</a>
+	<a href="index.jsp"><i class="fa fa-print nav_icon"></i>盘友共享</a>
 </li>

@@ -16,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URLEncoder;
 
-@WebServlet(name = "DownloadServlet",urlPatterns = "/icloud/download")
+@WebServlet(name = "DownloadServlet",urlPatterns = "/icloud/download/*")
 public class DownloadServlet extends HttpServlet {
     private UserFile userFile=null;
     private UserFileDao userFileDao=new UserFileDao();

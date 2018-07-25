@@ -2,7 +2,7 @@
 <nav class="top1 navbar navbar-default navbar-static-top"
 	role="navigation" style="margin-bottom: 0">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="user">Icloud</a>
+		<a class="navbar-brand" >Icloud</a>
 	</div>
 	<ul class="nav navbar-nav navbar-right">
 		<a href="common/login.jsp" class="btn btn-success" style="margin-top: 5px">登录</a>

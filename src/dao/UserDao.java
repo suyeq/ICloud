@@ -87,4 +87,12 @@ public class UserDao extends DBConnection{
         }
         return 0;
     }
+
+    public void deleteUsers(int id) throws SQLException, IOException, ClassNotFoundException {
+        String sql="delete from user where id=?";
+        con=linkDatabase();
+        sta=con.prepareStatement(sql);
+        sta.setInt(1,id);
+        sta.executeUpdate();
+    }
 }

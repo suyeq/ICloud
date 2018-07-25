@@ -30,4 +30,12 @@ public class StringUtl {
         }
         return s+suffix;
     }
+
+    public static int[] toInter(String []ids){
+        int[] ints=new int[ids.length];
+        for(int i=0;i<ids.length;i++){
+            ints[i]=Integer.parseInt(ids[i]);
+        }
+        return ints;
+    }
 }

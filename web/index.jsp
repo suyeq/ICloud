@@ -67,7 +67,7 @@
             </div>
             <div class="bs-example4" data-example-id="contextual-table">
                 <div class="text-center">
-                    <form class="form-inline" id="search_form" method="post">
+                    <form class="form-inline" id="search_form" method="post" action="<%=basePath%>icloud?method=index">
                         <input placeholder="输入要查询的文件名.." name="filename" class="form-control">
                         <a class="btn btn-info" onclick="submit_form()"><i class="fa fa-search nav_icon"></i>搜索</a>
                     </form>
@@ -91,7 +91,7 @@
                             <td>${userFile.owner.username }</td>
                             <td>${userFile.createTime }</td>
                             <td>${userFile.count }</td>
-                            <td><a class="btn btn-primary" href="download?id=${userFile.id }"><i class="fa fa-download"></i>下载</a></td>
+                            <td><a class="btn btn-primary" href="icloud/download?id=${userFile.id }"><i class="fa fa-download"></i>下载</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

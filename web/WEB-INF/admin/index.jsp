@@ -96,9 +96,9 @@
 									<th>下载</th>
 								</tr>
 							</thead>
-							<form action="admin" id="dele_form" method="post">
-							<input type="hidden" name="action" value="delete">
-							<input type="hidden" name="from" value="index">
+							<form action="<%=basePath%>icloud?" id="dele_form" method="post">
+							<input type="hidden" name="method" value="delete">
+							<input type="hidden" name="action" value="">
 							<tbody>
 								<c:forEach items="${fileList }" var="userFile">
 								<tr>

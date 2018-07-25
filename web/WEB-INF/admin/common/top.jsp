@@ -2,7 +2,7 @@
 <nav class="top1 navbar navbar-default navbar-static-top"
 	role="navigation" style="margin-bottom: 0">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="admin">ICloud(管理员)</a>
+		<a class="navbar-brand" >ICloud</a>
 	</div>
 	<ul class="nav navbar-nav navbar-right">
 		<strong style="margin-right: 10px">${user.username}</strong>

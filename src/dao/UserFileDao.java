@@ -93,6 +93,16 @@ public class UserFileDao extends DBConnection{
         sta.executeUpdate();
     }
 
+    public void deleteFile(int id) throws SQLException, IOException, ClassNotFoundException {
+        String sql="delete from file where id=?";
+        con=linkDatabase();
+        sta=con.prepareStatement(sql);
+        sta.setInt(1,id);
+        sta.executeUpdate();
+    }
+
+
+
     public void updateDownPersons(UserFile userFile) throws SQLException, IOException, ClassNotFoundException {
         String sql="UPDATE file set count=? where  id=?";
         con=linkDatabase();

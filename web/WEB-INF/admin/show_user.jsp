@@ -88,9 +88,10 @@
 									<th>下载</th>
 								</tr>
 							</thead>
-							<form action="admin" id="dele_form" method="post">
-							<input type="hidden" name="action" value="delete">
-							<input type="hidden" name="from" value="showUser&id=${theUser.id }">
+							<form action="<%=basePath%>icloud?" id="dele_form" method="post">
+							<input type="hidden" name="method" value="delete">
+							<input type="hidden" name="action" value="showUser">
+							<input type="hidden" name="id" value="${theUser.id}">
 							<tbody>
 							<c:forEach items="${fileList }" var="userFile">
 								<tr>
@@ -163,12 +164,13 @@
     		       确定要分享？
          </div>
          <div class="modal-footer">
-            <form action="admin" id="share_form">
+            <form action="<%=basePath%>icloud?" id="share_form">
             <button type="button" class="btn btn-default" 
                data-dismiss="modal">关闭
             </button>
-            	<input class="hidden" value="share" name="action">
-            	<input class="hidden" id="share_id" name="id">
+				<input class="hidden" value="share" name="method">
+				<input class="hidden" value="takeshare" name="action">
+				<input class="hidden" id="share_id" name="id">
            		<input type="submit" class="btn btn-primary" value="确定" />
             </form>
          </div>
@@ -178,7 +180,7 @@
 
 <!--上传  模态框（Modal） -->
 	<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<form action="upload" method="post" enctype="multipart/form-data">
+		<form action="<%=basePath%>icloud/upload" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="from" value="admin">
 			<div class="modal-dialog">
 				<div class="modal-content">

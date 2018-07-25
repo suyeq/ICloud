@@ -5,6 +5,7 @@ import dao.UserFileDao;
 import model.User;
 import model.UserFile;
 import util.Const;
+import util.StringUtl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +46,6 @@ public class AdminAction extends Action{
             }else {
                 fileList=userFileDao.findAllFile(filename);
             }
-            System.out.println(fileList.size());
             request.setAttribute("fileList",fileList);
             request.getRequestDispatcher("WEB-INF/admin/all.jsp").forward(request,response);
 
@@ -83,6 +83,16 @@ public class AdminAction extends Action{
                 }
             }
             request.getRequestDispatcher("WEB-INF/admin/edit.jsp").forward(request,response);
+        }else if(action.equals("deleteUser")){
+            String [] ids=request.getParameterValues(Const.Parameter_ids);
+            int [] userid= StringUtl.toInter(ids);
+            for(int i=0;i<userid.length;i++){
+                userDao.deleteUsers(userid[i]);
+            }
+            response.sendRedirect("icloud?method=admin&action=userList");
+        }else if(action.equals("logout")){
+            request.getSession().removeAttribute(Const.SESSION_USER);
+            response.sendRedirect(request.getServletContext().getContextPath().toString()+"/"+"index.jsp");
         }
 
     }

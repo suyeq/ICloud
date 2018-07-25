@@ -21,7 +21,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet(name = "UploadServlet",urlPatterns = "/icloud/upload")
+@WebServlet(name = "UploadServlet",urlPatterns = "/icloud/upload/*")
 public class UploadServlet extends HttpServlet {
 
     private UserFileDao userFileDao = new UserFileDao();

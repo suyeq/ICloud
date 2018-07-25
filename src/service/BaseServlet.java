@@ -28,6 +28,8 @@ public class BaseServlet extends HttpServlet {
                 new ShareFileAction(request,response).carriryShow();
             } else  if(method.equals("delete")){
                 new DeleteFileAction(request,response).carriryShow();
+            }else if(method.equals("index")){
+                new IndexAction(request,response).carriyShow();
             }
         } catch (Exception e) {
             e.printStackTrace();
